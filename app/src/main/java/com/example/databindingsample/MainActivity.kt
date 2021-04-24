@@ -12,15 +12,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
+        binding.counter += 1
         binding.sampleButton.setOnClickListener {
-            binding.sampleTextView.text = "Hello, Binding!"
-
+            binding.counter += 1
         }
-
-
-//        val sampleTextView: TextView = findViewById(R.id.sample_text_view)
-//        sampleTextView.text = "Hello Android"
 
 
     }
