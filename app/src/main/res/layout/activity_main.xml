@@ -4,8 +4,8 @@
 
     <data>
         <variable
-            name="counter"
-            type="int" />
+            name="inputText"
+            type="String" />
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -14,11 +14,17 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/sample_text_view"
-            android:layout_width="wrap_content"
+        <EditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{`Count:` + counter}"/>
+            android:inputType="text"
+            android:text="@={inputText}" />
+
+        <Button
+            android:id="@+id/button_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
 
         <Button
             android:id="@+id/sample_button"
