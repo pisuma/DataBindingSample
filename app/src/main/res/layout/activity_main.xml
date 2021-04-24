@@ -3,9 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View"/>
         <variable
-            name="inputText"
-            type="String" />
+            name="enableAlarm"
+            type="boolean" />
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -14,11 +15,28 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
-        <EditText
+        <Switch
+            android:id="@+id/switch1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:text="@={inputText}" />
+            android:checked="@={enableAlarm}"
+            android:padding="16dp"
+            android:text="アラーム" />
+
+        <TimePicker
+            android:id="@+id/time_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{enableAlarm ? View.VISIBLE : View.GONE}"
+            />
+
+
+
+<!--        <EditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:inputType="text"-->
+<!--            android:text="@={inputText}" />-->
 
         <Button
             android:id="@+id/button_confirm"
