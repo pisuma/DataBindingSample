@@ -4,52 +4,12 @@
 
     <data>
         <import type="android.view.View"/>
-        <variable
-            name="enableAlarm"
-            type="boolean" />
+        <import type="com.example.databindingsample.Converter"/>
     </data>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".MainActivity">
-
-        <Switch
-            android:id="@+id/switch1"
+        <ListView
+            android:id="@+id/list_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:checked="@={enableAlarm}"
-            android:padding="16dp"
-            android:text="アラーム" />
+            android:layout_height="match_parent" />
 
-        <TimePicker
-            android:id="@+id/time_picker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="@{enableAlarm ? View.VISIBLE : View.GONE}"
-            />
-
-
-
-<!--        <EditText-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:inputType="text"-->
-<!--            android:text="@={inputText}" />-->
-
-        <Button
-            android:id="@+id/button_confirm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/sample_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Binding!" />
-
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>
