@@ -16,13 +16,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        val adapter = MainListAdapter(this).apply {
-            add(ListItem("ゴミ出し", Date()))
-            add(ListItem("技術書を書く", Date()))
-            add(ListItem("脱稿する", Date()))
-        }
-
-        binding.listView.adapter = adapter
     }
 }
 
