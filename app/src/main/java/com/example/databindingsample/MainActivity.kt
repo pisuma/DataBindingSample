@@ -16,11 +16,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.form = MainForm()
 
-        val adapter = ExampleAdapter(this)
-        adapter.items = listOf(ListItem("ゴミ出し", Date()),ListItem("技術書を書く", Date()), ListItem("脱稿する", Date()))
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
-        binding.recyclerView.adapter = adapter
     }
 
 
