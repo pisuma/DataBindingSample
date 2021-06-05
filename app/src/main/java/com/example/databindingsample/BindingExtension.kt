@@ -3,7 +3,8 @@ package com.example.databindingsample
 import android.widget.EditText
 import androidx.databinding.BindingAdapter
 
-@BindingAdapter("errorText")
-fun EditText.setErrorText(text: String?) {
-    error =text
+@BindingAdapter("showError","errorText")
+fun EditText.setErrorText(showError: Boolean, errorText: String) {
+    error = if (showError)
+  errorText else null
 }

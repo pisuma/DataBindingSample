@@ -29,7 +29,8 @@
             android:hint="To"
             android:inputType="textEmailAddress"
             android:text="@={form.to}"
-            app:errorText="@{form.errorMessage}"/>
+            app:errorText="@{@string/error_message}"
+            app:showError="@{!form.valid}"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -51,12 +52,22 @@
             android:inputType="textMultiLine"
             android:text="@={form.message}"/>
 
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="@{form.requesting ? View.VISIBLE : View.INVISIBLE}"/>
+
         <Button
             android:id="@+id/button_send"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClickListener="@{(v) -> form.validate(context)}"
+            android:enabled="@{!form.requesting}"
+            android:onClickListener="@{(v) -> form.validate()}"
             android:text="Send"/>
     </LinearLayout>
 </layout>
