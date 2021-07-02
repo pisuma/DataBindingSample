@@ -8,6 +8,9 @@ import androidx.databinding.Observable
 import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainForm : BaseObservable() {
     val to = ObservableField<String>("")
@@ -35,9 +38,15 @@ class MainForm : BaseObservable() {
 
 
     private fun send() {
-        Handler().postDelayed({
-            onComplete.postValue(true)
-        }, 3000)
+        Api.client.postSample().enqueue(object: Callback<String> {
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                onComplete.postValue(true)
+            }
+        })
     }
 
     //notifyChange()はBinding先へ値が変更されたことを通知するために呼び出します。
